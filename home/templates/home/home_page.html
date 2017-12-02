@@ -1,11 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags pages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}home-page{% endblock %}
 
-{% block content %}
-    <h1>Welcome to your new Wagtail site!</h1>
+{% block header %}
 
-    <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).</p>
+{% endblock header %}
 
-    <p>If you haven't already given the documentation a read, head over to <a href="http://docs.wagtail.io/">http://docs.wagtail.io</a> to start building on Wagtail</p>
+{% block outter_content %}
+	<div class="main main-raised">
+		<div class="container">
+			<div class="section text-center section-landing">
+				<div class="row">
+					{% with page.get_children.live as pages %}
+						{% for page in pages %}
+							{% image page.specific.thumbnail fill-180x180 as theimage %}
+							<div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-primary">
+										<a href="{% pageurl page %}">
+											<img src="{{ theimage.url }}" alt="{{ theimage.alt }}" />
+										</a>
+									</div>
+									<h4 class="info-title">
+										<a href="{% pageurl page %}">
+											{{ page.title }}
+										</a>
+									</h4>
+								</div>
+							</div>
+						{% endfor %}
+					{% endwith %}
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

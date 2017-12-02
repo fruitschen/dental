@@ -1,0 +1,84 @@
+.category-page .btn-default {
+  background-color: rgb(68, 183, 139);
+}
+
+.simple-page .section{
+  padding-top: 40px;
+}
+
+.simple-page h2.title {
+  margin: 0;
+}
+
+.simple-category-page h2, .simple-category-page h4, .simple-category-page .intro,
+.simple-page h2.title, .simple-page .page-body, .simple-page .rich-text p  {
+  text-align: left;
+}
+
+.simple-category-page h2{
+  margin-bottom: 0;
+}
+
+.simple-category-page .intro{
+  margin-top: 20px;
+}
+
+.simple-category-page .timestamp, .category-page .timestamp{
+  font-size: 0.8em; color: grey;
+}
+
+.simple-page .page-body img{
+  max-width: 100%;
+  height:auto;
+}
+
+.simple-category-page .card {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #cccccc;
+  box-shadow: none;
+}
+
+.category-page .title-row{
+    padding-bottom: 40px;
+}
+
+.category-page .title-row, .simple-category-page .title-row{
+    border-bottom: 1px solid #CFE3DC;
+    margin-bottom: 40px;
+}
+
+.category-page .card {
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.category-page .card .thumbnail {
+    border: 0 none;
+    padding: 0;
+    margin: 8px 0 0 0;
+    position: relative;
+    background: transparent;
+}
+
+.category-page .card .thumbnail>img, .category-page .card .thumbnail a>img {
+    border-radius: 8px 8px;
+    box-shadow: 0 25px 20px -21px rgba(0,0,0,0.57);
+    width: 95%;
+}
+
+.category-page .card .card-info {
+    padding: 15px;
+    border-radius: 0 0 12px 12px;
+}
+
+.category-page .card-info a:not(.btn) {
+    color: #434343;
+}
+
+.category-page .card-info h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+

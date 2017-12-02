@@ -1,0 +1,24 @@
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+{% for child in content %}
+    {% if child.block_type == 'image_list' %}
+        <div class="row">
+            {% for image_item in child.value.image_list %}
+                {% image image_item.image width-800 as theimage %}
+                <div class="col-xs-6 col-sm-6" style="padding: 0; ">
+                    <a href="{{ image_item.page.url }}">
+                        <img src="{{ theimage.url }}" style="max-height:600px; max-width: 100%;" alt="{{ theimage.caption }}" />
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% elif child.block_type == 'paragraph' %}
+        <div class="row">
+            <div class="col-md-12" style="padding:20px;">
+                {{ child }}
+            </div>
+        </div>
+    {% else %}
+        {{ child }}
+    {% endif %}
+{% endfor %}
