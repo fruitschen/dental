@@ -56,7 +56,7 @@ class PagesStreamBlock(StreamBlock):
 
 
 class HomePage(Page):
-    pass
+    parent_page_types = []
 
 
 class SimplePage(Page):
@@ -103,3 +103,97 @@ SimplePage.content_panels = [
     FieldPanel('intro', classname="full"),
     StreamFieldPanel('content'),
 ]
+
+
+class PersonBlock(StructBlock):
+    photo = ImageChooserBlock(required=True)
+    name = CharBlock()
+    biography = RichTextBlock()
+
+    class Meta:
+        icon = 'user'
+
+
+class DentistStreamBlock(StreamBlock):
+    person = PersonBlock(icon="user")
+
+
+class DentistsPage(Page):
+    intro = RichTextField(blank=True)
+    content = StreamField(
+        DentistStreamBlock
+    )
+
+    timestamp = models.DateTimeField(
+        verbose_name=u'时间',
+        blank=True,
+        null=True
+    )
+
+    search_fields = Page.search_fields + [
+        index.SearchField('intro'),
+        index.SearchField('content'),
+    ]
+
+    api_fields = ['intro', 'content', ]
+    subpage_types = []
+
+    def save(self, *args, **kwargs):
+        result = super(DentistsPage, self).save(*args, **kwargs)
+        if self.first_published_at and self.timestamp and self.first_published_at > self.timestamp:
+            self.first_published_at = self.timestamp
+            self.save()
+
+    class Meta:
+        verbose_name = u'医生团队页面'
+
+
+DentistsPage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('timestamp'),
+    FieldPanel('intro', classname="full"),
+    StreamFieldPanel('content'),
+]
+
+
+# Category Page
+
+
+class CategoryPage(Page):
+    intro = RichTextField(blank=True)
+    header_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name=u'标题图片',
+    )
+    thumbnail = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name = u'缩略图',
+    )
+
+    search_fields = Page.search_fields + [
+        index.SearchField('intro'),
+    ]
+
+    api_fields = ['intro', 'thumbnail']
+
+    subpage_types = ['SimplePage']
+
+    class Meta:
+        verbose_name = u'分类页面'
+
+
+CategoryPage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    ImageChooserPanel('header_image'),
+    ImageChooserPanel('thumbnail'),
+    FieldPanel('intro', classname="full"),
+]
+

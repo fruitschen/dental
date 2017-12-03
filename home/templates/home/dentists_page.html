@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags pages_tags %}
+
+{% block body_class %}dentists-page{% endblock %}
+
+{% block outter_content %}
+	<div class="main main-raised">
+		<div class="container">
+			<div class="section">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="title">{{ self.title }}</h2>
+                        {% if self.intro %}
+                            {{ self.intro|richtext }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% if self.content %}
+                    {% for child in self.content %}
+                        {% if child.block_type == 'person' %}
+                            <div class="row">
+                                {% image child.value.photo width-800 as theimage %}
+                                <div class="col-md-8 col-md-offset-2">
+                                    <img src="{{ theimage.url }}" style="max-height:600px; max-width: 100%;" alt="{{ theimage.alt }}" />
+                                    <h2>{{ child.value.name }}</h2>
+                                    <div>
+                                        {{ child.value.biography }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            {{ child }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

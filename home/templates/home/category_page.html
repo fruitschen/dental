@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags pages_tags %}
+
+{% block body_class %}category-page{% endblock %}
+
+{% block outter_content %}
+	<div class="main main-raised">
+		<div class="container">
+			<div class="section section-landing" style="padding-top: 10px;">
+                <div class="row title-row">
+                    <div class="col-md-12 col-xs-12" style="padding:0; margin:0">
+						{% image page.header_image original as theimage %}
+						<img src="{{ theimage.url }}" alt="{{ theimage.alt }}" style="max-width: 100%;" />
+                        <h2 class="title">{{ self.title }}</h2>
+                        {% if self.intro.striptags.strip %}
+                            {{ self.intro|richtext }}
+                        {% endif %}
+                    </div>
+                </div>
+
+				<div class="row">
+					{% with page.get_children.live as pages %}
+						{% for page in pages %}
+							{% image page.specific.thumbnail fill-400x300 as theimage %}
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 ">
+								<div class="thumbnail">
+									<a href="{% pageurl page %}">
+										<img src="{{ theimage.url }}" alt="{{ theimage.alt }}" />
+									</a>
+								</div>
+							</div>
+							<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+								<h3 class="title">
+									<a href="{% pageurl page %}" title="{{ page.title }}">
+										{{ page.title|truncatechars:10 }}
+										<span class="timestamp">{{ page.specific.timestamp|date:'y-m-j' }}</span>
+									</a>
+								</h3>
+								<div class="intro">
+									{{ page.specific.intro|safe }}
+									<a href="{% pageurl page %}" class="btn btn-sm btn-default btn-round pull-right">
+										详情
+									</a>
+
+								</div>
+							</div>
+						{% endfor %}
+					{% endwith %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
