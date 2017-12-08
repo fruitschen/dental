@@ -55,8 +55,54 @@ class PagesStreamBlock(StreamBlock):
     image_list = ImageListBlock(icon="image")
 
 
+# HomePage Streamfield definition
+
+
+class FourColImageListBlock(StructBlock):
+    image_list = ListBlock(ImageBlock(label=u"四列图片"))
+
+
+class ThreeColImageListBlock(StructBlock):
+    image_list = ListBlock(ImageBlock(label=u"三列图片"))
+
+
+class LinkItem(StructBlock):
+    title = CharBlock(required=True, max_length=255)
+    page = PageChooserBlock(can_choose_root=True, required=False)
+
+
+class LinkList(StructBlock):
+    link_list = ListBlock(LinkItem(label=u"链接"))
+
+
+class HomePagesStreamBlock(StreamBlock):
+    paragraph = RichTextBlock(icon="pilcrow")
+    image_list_4 = FourColImageListBlock(icon="image")
+    image_list_3 = ThreeColImageListBlock(icon="image")
+    link_list = LinkList(icon="link", label=u"链接列表")
+
+
 class HomePage(Page):
+    header_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name=u'标题图片',
+    )
+    content = StreamField(
+        HomePagesStreamBlock,
+    )
+
     parent_page_types = []
+
+
+HomePage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    ImageChooserPanel('header_image'),
+    StreamFieldPanel('content'),
+]
 
 
 class SimplePage(Page):

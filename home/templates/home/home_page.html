@@ -10,28 +10,99 @@
 
 {% block outter_content %}
 	<div class="main main-raised">
-		<div class="container">
-			<div class="section text-center section-landing">
-				<div class="row">
-					{% with page.get_children.live as pages %}
-						{% for page in pages %}
-							{% image page.specific.thumbnail fill-180x180 as theimage %}
-							<div class="col-md-4">
-								<div class="info">
-									<div class="icon icon-primary">
-										<a href="{% pageurl page %}">
-											<img src="{{ theimage.url }}" alt="{{ theimage.alt }}" />
-										</a>
-									</div>
-									<h4 class="info-title">
-										<a href="{% pageurl page %}">
-											{{ page.title }}
-										</a>
-									</h4>
+		<div class="section text-center section-landing" style="padding-top: 10px;">
+
+			<div class="row title-row">
+				<div class="col-md-12 col-xs-12" style="padding:0; margin:0">
+					{% image page.header_image original as theimage %}
+					<img src="{{ theimage.url }}" alt="{{ theimage.alt }}" style="width: 100%;" />
+				</div>
+			</div>
+
+			{% for child in self.content %}
+				{% if child.block_type == 'image_list_4' %}
+					<div class="row text-center">
+						{% for image_item in child.value.image_list %}
+							{% image image_item.image width-800 as theimage %}
+							<div class="col-xs-3 col-sm-3 four-col-img">
+								<div style="background-color: rgb(18, 130, 180); padding-bottom: 10px;" class="four-col-img-item">
+									<a href="{{ image_item.page.url }}">
+										<div class="img-container">
+											<img src="{{ theimage.url }}" style="max-height:300px; max-width: 100%;" alt="{{ theimage.caption }}" />
+										</div>
+										<div class="text-center" style="color: white; font-size:12px">{{ image_item.caption }}</div>
+									</a>
 								</div>
 							</div>
 						{% endfor %}
-					{% endwith %}
+					</div>
+				{% elif child.block_type == 'image_list_3' %}
+					<div class="row text-center">
+						{% for image_item in child.value.image_list %}
+							{% image image_item.image width-800 as theimage %}
+							<div class="col-xs-4 col-sm-4 three-col-img">
+								<div style="" class="three-col-img-item">
+									<a href="{{ image_item.page.url }}">
+										<div class="col-xs-4 col-md-4 img-container">
+											<img src="{{ theimage.url }}" style="max-height:400px; max-width: 100%;" alt="{{ theimage.caption }}" />
+										</div>
+										<div class="col-xs-8 col-md-8 link-text">
+											{{ image_item.caption }}
+										</div>
+									</a>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% elif child.block_type == 'link_list' %}
+					<div class="row text-center">
+						{% for link_item in child.value.link_list %}
+							{% image link_item.image width-800 as theimage %}
+							<div class="col-xs-4 col-sm-4 three-col-link">
+								<div style="" class="three-col-link-item">
+									<a href="{{ link_item.page.url }}">
+										<div class="link-text">
+											{{ link_item.title }}
+										</div>
+									</a>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% elif child.block_type == 'paragraph' %}
+					<div class="row">
+						<div class="col-md-12" style="padding:20px;">
+							{{ child }}
+						</div>
+					</div>
+				{% else %}
+					{{ child }}
+				{% endif %}
+			{% endfor %}
+			<div class="row footer-row">
+				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
+					<a href="tel:12345678">
+						<div class="img-container">
+							<img src="{% static 'img/phone.png' %}" style="max-height:300px; max-width: 100%;" alt="电话咨询" />
+						</div>
+						<div class="link-text" style="color: white; font-size:12px">电话咨询</div>
+					</a>
+				</div>
+				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
+					<a href="">
+						<div class="img-container">
+							<img src="{% static 'img/wechat.png' %}" style="max-height:300px; max-width: 100%;" alt="微信咨询" />
+						</div>
+						<div class="link-text" style="color: white; font-size:12px">微信咨询</div>
+					</a>
+				</div>
+				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
+					<a href="tel:12345678">
+						<div class="img-container">
+							<img src="{% static 'img/online.png' %}" style="max-height:300px; max-width: 100%;" alt="在线咨询" />
+						</div>
+						<div class="link-text" style="color: white; font-size:12px">在线咨询</div>
+					</a>
 				</div>
 			</div>
 		</div>
