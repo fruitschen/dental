@@ -239,8 +239,8 @@ a .material-icons, a:hover .material-icons, a:focus .material-icons {
 .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle, .open >
 .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus, .open >
 .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover {
-  background-color: rgb(18, 130, 180) ;
-  color: #FFFFFF;
+  color: rgb(18, 130, 180) ;
+  background-color: #FFFFFF;
 }
 .btn.btn-primary:focus, .btn.btn-primary:active, .btn.btn-primary:hover,
 .navbar .navbar-nav > li > a.btn.btn-primary:focus,
@@ -277,8 +277,8 @@ a .material-icons, a:hover .material-icons, a:focus .material-icons {
 }
 .btn.btn-primary.btn-simple,
 .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple {
-  background-color: transparent;
-  color: rgb(18, 130, 180) ;
+  color: transparent;
+  background-color: rgb(18, 130, 180) ;
   box-shadow: none;
 }
 .btn.btn-primary.btn-simple:hover, .btn.btn-primary.btn-simple:focus, .btn.btn-primary.btn-simple:active,
@@ -2110,8 +2110,8 @@ legend {
   line-height: 1.42857;
 }
 .navbar, .navbar.navbar-default {
-  background-color: rgb(18, 130, 180) ;
-  color: #ffffff;
+  color: rgb(18, 130, 180) ;
+  background-color: #ffffff;
 }
 .navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar .navbar-form input.form-control::-moz-placeholder, .navbar.navbar-default .navbar-form .form-group input.form-control::-moz-placeholder,
