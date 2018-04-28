@@ -30,12 +30,6 @@ class ImageFormatChoiceBlock(FieldBlock):
     ))
 
 
-class HTMLAlignmentChoiceBlock(FieldBlock):
-    field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), ('full', 'Full width'),
-    ))
-
-
 class PagesRichTextBlock(StructBlock):
     content = RichTextBlock()
 
@@ -53,6 +47,7 @@ class ImageListBlock(StructBlock):
 class PagesStreamBlock(StreamBlock):
     paragraph = RichTextBlock(icon="pilcrow")
     image_list = ImageListBlock(icon="image")
+    html = RawHTMLBlock(icon="code", label='Raw HTML')
 
 
 # HomePage Streamfield definition
@@ -80,7 +75,7 @@ class HomePagesStreamBlock(StreamBlock):
     image_list_4 = FourColImageListBlock(icon="image")
     image_list_3 = ThreeColImageListBlock(icon="image")
     link_list = LinkList(icon="link", label=u"链接列表")
-
+    html = RawHTMLBlock(icon="code", label='Raw HTML')
 
 class HomePage(Page):
     header_image = models.ForeignKey(
