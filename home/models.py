@@ -24,58 +24,48 @@ from modelcluster.fields import ParentalKey
 # Global Streamfield definition
 
 
-class ImageFormatChoiceBlock(FieldBlock):
-    field = forms.ChoiceField(choices=(
-        ('left', 'Wrap left'), ('right', 'Wrap right'), ('mid', 'Mid width'), ('full', 'Full width'),
-    ))
-
-
-class PagesRichTextBlock(StructBlock):
-    content = RichTextBlock()
-
-
 class ImageBlock(StructBlock):
-    image = ImageChooserBlock()
-    caption = CharBlock(required=False, max_length=255)
-    page = PageChooserBlock(can_choose_root=True, required=False)
+    image = ImageChooserBlock(label=u"图片")
+    caption = CharBlock(required=False, max_length=255, label=u"图片标题")
+    page = PageChooserBlock(can_choose_root=True, required=False, label=u"链接到页面")
 
 
 class ImageListBlock(StructBlock):
-    image_list = ListBlock(ImageBlock(label="Images"))
+    image_list = ListBlock(ImageBlock(label="图片"))
 
 
 class PagesStreamBlock(StreamBlock):
-    paragraph = RichTextBlock(icon="pilcrow")
-    image_list = ImageListBlock(icon="image")
-    html = RawHTMLBlock(icon="code", label='Raw HTML')
+    paragraph = RichTextBlock(icon="pilcrow", label=u'段落')
+    image_list = ImageListBlock(icon="image", label=u'图片列表')
+    html = RawHTMLBlock(icon="code", label=u'HTML代码')
 
 
 # HomePage Streamfield definition
 
 
 class FourColImageListBlock(StructBlock):
-    image_list = ListBlock(ImageBlock(label=u"四列图片"))
+    image_list = ListBlock(ImageBlock(label=u"四列图片"), label=u'四列图片')
 
 
 class ThreeColImageListBlock(StructBlock):
-    image_list = ListBlock(ImageBlock(label=u"三列图片"))
+    image_list = ListBlock(ImageBlock(label=u"三列图片"), label=u'三列图片')
 
 
 class LinkItem(StructBlock):
-    title = CharBlock(required=True, max_length=255)
-    page = PageChooserBlock(can_choose_root=True, required=False)
+    title = CharBlock(required=True, max_length=255, label=u"标题")
+    page = PageChooserBlock(can_choose_root=True, required=False, label=u"链接到页面")
 
 
 class LinkList(StructBlock):
-    link_list = ListBlock(LinkItem(label=u"链接"))
+    link_list = ListBlock(LinkItem(label=u"链接"), label=u'链接列表')
 
 
 class HomePagesStreamBlock(StreamBlock):
-    paragraph = RichTextBlock(icon="pilcrow")
-    image_list_4 = FourColImageListBlock(icon="image")
-    image_list_3 = ThreeColImageListBlock(icon="image")
+    paragraph = RichTextBlock(icon="pilcrow", label=u'段落')
+    image_list_4 = FourColImageListBlock(icon="image", label=u"四列图片")
+    image_list_3 = ThreeColImageListBlock(icon="image", label=u"三列图片")
     link_list = LinkList(icon="link", label=u"链接列表")
-    html = RawHTMLBlock(icon="code", label='Raw HTML')
+    html = RawHTMLBlock(icon="code", label=u'HTML代码')
 
 class HomePage(Page):
     header_image = models.ForeignKey(
@@ -88,6 +78,7 @@ class HomePage(Page):
     )
     content = StreamField(
         HomePagesStreamBlock,
+        verbose_name=u'内容',
     )
 
     parent_page_types = []
@@ -101,7 +92,7 @@ HomePage.content_panels = [
 
 
 class SimplePage(Page):
-    intro = RichTextField(blank=True)
+    intro = RichTextField(blank=True, verbose_name="简要内容")
     content = StreamField(
         PagesStreamBlock,
     )
@@ -111,7 +102,8 @@ class SimplePage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name='+',
+        verbose_name=u'缩略图',
     )
     timestamp = models.DateTimeField(
         verbose_name=u'时间',
