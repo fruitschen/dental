@@ -89,7 +89,7 @@
 					</a>
 				</div>
 				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
-					<a href="">
+					<a href="#wechatModal" data-toggle="modal" data-target="#wechatModal">
 						<div class="img-container">
 							<img src="{% static 'img/wechat.png' %}" style="max-height:300px; max-width: 100%;" alt="微信咨询" />
 						</div>
@@ -97,14 +97,35 @@
 					</a>
 				</div>
 				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
-					<a href="">
+					<a href="/about/">
 						<div class="img-container">
-							<img src="{% static 'img/online.png' %}" style="max-height:300px; max-width: 100%;" alt="在线咨询" />
+							<img src="{% static 'img/online.png' %}" style="max-height:300px; max-width: 100%;" alt="关于我们" />
 						</div>
-						<div class="link-text" style="color: white; font-size:12px">在线咨询</div>
+						<div class="link-text" style="color: white; font-size:12px">关于我们</div>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Sart Modal -->
+	<div class="modal fade" id="wechatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">微信咨询</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						<img style="max-width:100%; height:auto;" src="{% static 'img/code.png' %}" alt="公众号二维码" />
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  End Modal -->
+
 {% endblock %}
