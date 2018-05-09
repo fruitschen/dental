@@ -1,3 +1,7 @@
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: "微软雅黑";
+}
+
 .category-page .btn-default {
   background-color: rgb(18, 130, 180);
 }
@@ -142,4 +146,52 @@
     max-width: 100%;
     height: auto;
     width: auto;
+}
+
+.overlap-design {
+  line-height:1.75em;
+  color:#a1a1a1;
+  font-size:14px;
+}
+.overlap-design h3.overlap-title {
+  text-align: left;
+  margin: 0;
+}
+.overlap-design h3.overlap-title .main-title {
+  color: #3f3f3f;
+}
+.overlap-design h3.overlap-title sup.subtitle{
+  font-size: 25%;
+  position: relative;
+  top: -2.5em;
+  left:-2em;
+  color: #3f3f3f;
+}
+.overlap-design .overlap-text{
+  margin-top: -2.5em;
+}
+
+@media (max-width: 767px)  {
+  .overlap-design h3.overlap-title {
+    font-size: 30px;
+    margin: 0;
+  }
+  .overlap-design h3.overlap-title sup.subtitle{
+    top: -1em;
+    left:-0.8em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px)  {
+  .overlap-design h3.overlap-title {
+    font-size: 50px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 991px) {
+  .overlap-design h3.overlap-title {
+    font-size: 70px;
+    margin: 0;
+  }
 }

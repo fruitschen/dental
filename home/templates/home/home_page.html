@@ -75,10 +75,28 @@
 							{{ child }}
 						</div>
 					</div>
+				{% elif child.block_type == 'overlap' %}
+					<div class="row overlap-design">
+						<div class="col-md-10 col-md-offset-1" style="padding:20px;">
+							<section style="margin-top:10px;box-sizing: border-box; padding: 0px;">
+								<h3 class="overlap-title">
+									<span class="main-title">{{ child.value.title }}</span>
+									<sup class="subtitle">/{{ child.value.subtitle }}</sup>
+								</h3>
+								<p style="text-align:left;" class="overlap-text">
+									<span style="font-size: 12px;">
+										{{ child.value.text.0 }}<span style="font-size: 14px; color: #3f3f3f;">{{ child.value.text|slice:"1:" }}
+										</span>
+									</span>
+								</p>
+							</section>
+						</div>
+					</div>
 				{% else %}
 					{{ child }}
 				{% endif %}
 			{% endfor %}
+
 			<div class="row footer-row">
 				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
 					<a href="tel:15040019277">
