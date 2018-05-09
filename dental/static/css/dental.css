@@ -148,11 +148,20 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     width: auto;
 }
 
+.quote {
+    margin: 120px auto;
+    font-size: 2.8em;
+    line-height: 2.8em;
+    color: #3f3f3f;
+}
+
 .overlap-design {
   line-height:1.75em;
   color:#a1a1a1;
   font-size:14px;
+  margin: 120px auto;
 }
+
 .overlap-design h3.overlap-title {
   text-align: left;
   margin: 0;
@@ -169,6 +178,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 
 @media (max-width: 767px)  {
+  .overlap-design {
+    margin: 40px auto;
+  }
   .overlap-design h3.overlap-title {
     font-size: 30px;
     margin: 0;
@@ -177,12 +189,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     top: -1em;
     left:-0.8em;
   }
-}
+  .quote{
+    font-size: 2em;
+    line-height: 2em;
+    margin: 40px auto;
+  }}
 
 @media (min-width: 768px) and (max-width: 991px)  {
+  .overlap-design {
+    margin: 60px auto;
+  }
   .overlap-design h3.overlap-title {
     font-size: 50px;
     margin: 0;
+  }
+  .quote {
+    margin: 60px auto;
   }
 }
 
@@ -194,5 +216,4 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   .overlap-design .overlap-text{
     margin-top: -2.5em;
   }
-
 }

@@ -73,6 +73,7 @@ class HomePagesStreamBlock(StreamBlock):
     link_list = LinkList(icon="link", label=u"链接列表")
     html = RawHTMLBlock(icon="code", label=u'HTML代码')
     overlap = OverlapDesign(icon="pilcrow", label=u"大小标题模块")
+    quote = TextBlock(icon = "openquote", label=u'引用')
 
 
 class HomePage(Page):
