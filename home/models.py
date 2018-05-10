@@ -23,6 +23,10 @@ from modelcluster.fields import ParentalKey
 
 # Global Streamfield definition
 
+class SimpleImageBlock(StructBlock):
+    image = ImageChooserBlock(label=u"图片")
+    caption = CharBlock(required=False, max_length=255, label=u"图片标题")
+
 
 class ImageBlock(StructBlock):
     image = ImageChooserBlock(label=u"图片")
@@ -52,6 +56,10 @@ class FourColImageListBlock(StructBlock):
 
 class ThreeColImageListBlock(StructBlock):
     image_list = ListBlock(ImageBlock(label=u"三列图片"), label=u'三列图片')
+
+
+class Carousel(StructBlock):
+    image_list = ListBlock(SimpleImageBlock(label=u"幻灯片图片"), label=u'幻灯片图片')
 
 
 class TwoColImageBlock(StructBlock):
@@ -91,6 +99,7 @@ class HomePagesStreamBlock(StreamBlock):
     overlap = OverlapDesign(icon="pilcrow", label=u"大小标题模块")
     quote = TextBlock(icon = "openquote", label=u'引用')
     image_list_5 = HPFiveColImageListBlock(icon="image", label=u"主页五列图片")
+    carousel = Carousel(icon="image", label=u"幻灯片图片")
 
 
 class HomePage(Page):

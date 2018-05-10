@@ -147,10 +147,55 @@
 							</div>
 						</div>
 					</div>
+				{% elif child.block_type == 'carousel' %}
+					<div class="row">
+						<div class="col-md-12 carousel-container">
+							<!-- Carousel Card -->
+							<div class="card card-raised card-carousel">
+								<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+									<div class="carousel slide" data-ride="carousel">
+										<!-- Indicators -->
+										<ol class="carousel-indicators">
+											{% for item in child.value.image_list %}
+												<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter }}" class="{% if forloop.first %}active{% endif %}"></li>
+											{% endfor %}
+										</ol>
+
+										<!-- Wrapper for slides -->
+										<div class="carousel-inner">
+											{% for item in child.value.image_list %}
+												{% with item.image as image_item %}
+													{% image image_item width-1200 as theimage %}
+													<div class="item {% if forloop.first %}active{% endif %}">
+														<img src="{{ theimage.url }}" alt="{{ theimage.caption }}" />
+														<div class="carousel-caption">
+															<h4>{{ item.caption }}</h4>
+														</div>
+													</div>
+											    {% endwith %}
+											{% endfor %}
+										</div>
+
+										<!-- Controls -->
+										<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+											<i class="material-icons">keyboard_arrow_left</i>
+										</a>
+										<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+											<i class="material-icons">keyboard_arrow_right</i>
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- End Carousel Card -->
+						</div>
+					</div>
+
 				{% else %}
 					{{ child }}
 				{% endif %}
 			{% endfor %}
+
+
 
 			<!--
 			<div class="row footer-row">
