@@ -210,6 +210,16 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   box-sizing: border-box;
 }
 
+.image-list-5-item-image {
+  box-shadow: #666666 3.53553px 3.53553px 8px;
+}
+
+@media (max-width: 370px)  {
+  .overlap-design h3.overlap-title sup.subtitle{
+    display:none;
+  }
+}
+
 @media (max-width: 767px)  {
   .overlap-design {
     margin: 40px auto;
@@ -239,6 +249,13 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   .two-col-text p.desc2{
     height: auto;
   }
+  .image-list-5-item{
+    margin: 2em auto;
+    padding: 0 2em;
+  }
+  .image-list-5-item-image{
+    padding: 4em 2em;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px)  {
@@ -258,6 +275,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   .two-col-text p.desc2{
     height: 3em;
   }
+  .image-list-5-item {
+    padding: 0;
+  }
 }
 
 @media (min-width: 991px) {
@@ -273,5 +293,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   }
   .two-col-text p.desc2{
     height: 4.5em;
+  }
+  .image-list-5-item {
+    padding: 0;
   }
 }

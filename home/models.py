@@ -42,6 +42,9 @@ class PagesStreamBlock(StreamBlock):
 
 # HomePage Streamfield definition
 
+class HPFiveColImageListBlock(StructBlock):
+    image_list = ListBlock(ImageChooserBlock(label=u"图片"))
+
 
 class FourColImageListBlock(StructBlock):
     image_list = ListBlock(ImageBlock(label=u"四列图片"), label=u'四列图片')
@@ -87,6 +90,7 @@ class HomePagesStreamBlock(StreamBlock):
     html = RawHTMLBlock(icon="code", label=u'HTML代码')
     overlap = OverlapDesign(icon="pilcrow", label=u"大小标题模块")
     quote = TextBlock(icon = "openquote", label=u'引用')
+    image_list_5 = HPFiveColImageListBlock(icon="image", label=u"主页五列图片")
 
 
 class HomePage(Page):
