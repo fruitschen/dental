@@ -54,6 +54,36 @@
 							</div>
 						{% endfor %}
 					</div>
+				{% elif child.block_type == 'image_list_2' %}
+					<div class="row text-center">
+						{% for image_item in child.value.image_list %}
+							{% image image_item.image width-350 as theimage %}
+							<div class="col-xs-12 col-md-6 two-col-container">
+								<div class="col-xs-6 col-md-7 two-col-img">
+									<div style="" class="two-col-img-item">
+										<a href="{{ image_item.page.url }}">
+											<img src="{{ theimage.url }}" style="max-height:400px; max-width: 100%;" alt="{{ theimage.caption }}" />
+										</a>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-5 two-col-text">
+									<div class="decoration">
+                                        —
+									</div>
+									<p class="desc1">
+										{{ image_item.desc1 }}
+									</p>
+									<p class="desc2">
+										<strong>{{ image_item.desc2 }}</strong>
+									</p>
+									<p class="link-text">
+										<a href="{{ image_item.page.url }}" target="_blank"><span style="color: #857d6a;">{{ image_item.link_text }}</span></a>
+									</p>
+								</div>
+							</div>
+
+						{% endfor %}
+					</div>
 				{% elif child.block_type == 'link_list' %}
 					<div class="row text-center">
 						{% for link_item in child.value.link_list %}
@@ -95,16 +125,19 @@
 						</div>
 					</div>
 				{% elif child.block_type == 'quote' %}
-					<div class="col-md-10">
-						<p class="quote">
-							“{{ child.value }}”
-						</p>
+					<div class="row">
+						<div class="col-md-12">
+							<p class="quote">
+								“{{ child.value }}”
+							</p>
+						</div>
 					</div>
 				{% else %}
 					{{ child }}
 				{% endif %}
 			{% endfor %}
 
+			<!--
 			<div class="row footer-row">
 				<div class="col-xs-4 col-sm-4 footer-item" style="padding: 0;">
 					<a href="tel:15040019277">
@@ -131,6 +164,7 @@
 					</a>
 				</div>
 			</div>
+			-->
 		</div>
 	</div>
 

@@ -51,6 +51,18 @@ class ThreeColImageListBlock(StructBlock):
     image_list = ListBlock(ImageBlock(label=u"三列图片"), label=u'三列图片')
 
 
+class TwoColImageBlock(StructBlock):
+    image = ImageChooserBlock(label=u"图片")
+    desc1 = CharBlock(required=False, max_length=255, label=u"描述1")
+    desc2 = CharBlock(required=False, max_length=255, label=u"描述2")
+    link_text = CharBlock(required=False, max_length=255, label=u"链接文字")
+    page = PageChooserBlock(can_choose_root=True, required=False, label=u"链接到页面")
+
+
+class TwoColImageListBlock(StructBlock):
+    image_list = ListBlock(TwoColImageBlock(label=u"两列图片"), label=u'两列图片')
+
+
 class LinkItem(StructBlock):
     title = CharBlock(required=True, max_length=255, label=u"标题")
     page = PageChooserBlock(can_choose_root=True, required=False, label=u"链接到页面")
@@ -70,6 +82,7 @@ class HomePagesStreamBlock(StreamBlock):
     paragraph = RichTextBlock(icon="pilcrow", label=u'段落')
     image_list_4 = FourColImageListBlock(icon="image", label=u"四列图片")
     image_list_3 = ThreeColImageListBlock(icon="image", label=u"三列图片")
+    image_list_2 = TwoColImageListBlock(icon="image", label=u"两列图片")
     link_list = LinkList(icon="link", label=u"链接列表")
     html = RawHTMLBlock(icon="code", label=u'HTML代码')
     overlap = OverlapDesign(icon="pilcrow", label=u"大小标题模块")

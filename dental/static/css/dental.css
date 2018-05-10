@@ -177,6 +177,39 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   color: #3f3f3f;
 }
 
+.two-col-img, .two-col-text, .two-col-text p {
+  padding: 0;
+}
+
+.two-col-text p.desc1{
+  font-size: 12px;
+  color: #857d6a;
+  padding-right: 10px;
+  padding-left: 10px;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+
+.two-col-text .desc2{
+  color: #3f3f3f;
+}
+
+.two-col-text .decoration {
+  margin-top: 21px;
+  margin-bottom: 14px;
+}
+
+.two-col-text .link-text {
+  display: inline-block;
+  border-radius: 5px;
+  line-height: 2.3;
+  border: 1px solid #5a5a5a;
+  width: 50%;
+  color: #454545;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 @media (max-width: 767px)  {
   .overlap-design {
     margin: 40px auto;
@@ -193,7 +226,20 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-size: 2em;
     line-height: 2em;
     margin: 40px auto;
-  }}
+  }
+  .two-col-container{
+    margin-top:30px;
+  }
+  .two-col-text div.decoration{
+    display:none;
+  }
+  .two-col-text p.desc1{
+    height: auto;
+  }
+  .two-col-text p.desc2{
+    height: auto;
+  }
+}
 
 @media (min-width: 768px) and (max-width: 991px)  {
   .overlap-design {
@@ -206,6 +252,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   .quote {
     margin: 60px auto;
   }
+  .two-col-text p.desc1{
+    height: 2em;
+  }
+  .two-col-text p.desc2{
+    height: 3em;
+  }
 }
 
 @media (min-width: 991px) {
@@ -215,5 +267,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   }
   .overlap-design .overlap-text{
     margin-top: -2.5em;
+  }
+  .two-col-text p.desc1{
+    height: 3em;
+  }
+  .two-col-text p.desc2{
+    height: 4.5em;
   }
 }
