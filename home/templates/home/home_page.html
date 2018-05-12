@@ -137,11 +137,13 @@
 						<div class="col-md-12">
 							<div class="row">
 								{% for image_item in child.value.image_list %}
-									{% image image_item width-800 as theimage %}
+									{% image image_item.image width-800 as theimage %}
 									<div class="image-list-5-item col-xs-12 col-md-2 {% if forloop.first %}col-md-offset-1{% endif %}" >
-										<div class="image-list-5-item-image">
-											<img src="{{ theimage.url }}" style="max-height:400px; max-width: 100%;" alt="{{ theimage.caption }}" />
-										</div>
+										{% if image_item.page %}<a href="{{ image_item.page.url }}">{% endif %}
+											<div class="image-list-5-item-image">
+												<img src="{{ theimage.url }}" style="max-height:400px; max-width: 100%;" alt="{{ theimage.caption }}" />
+											</div>
+										{% if image_item.page %}</a>{% endif %}
 									</div>
 								{% endfor %}
 							</div>

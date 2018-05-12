@@ -50,6 +50,10 @@ class HPFiveColImageListBlock(StructBlock):
     image_list = ListBlock(ImageChooserBlock(label=u"图片"))
 
 
+class HPFiveColImageListBlock(StructBlock):
+    image_list = ListBlock(ImageBlock(label="图片"))
+
+
 class FourColImageListBlock(StructBlock):
     image_list = ListBlock(ImageBlock(label=u"四列图片"), label=u'四列图片')
 
