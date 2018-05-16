@@ -115,10 +115,7 @@
 										<sup class="subtitle">/{{ child.value.subtitle }}</sup>
 									</h3>
 									<p style="text-align:left;" class="overlap-text">
-										<span style="font-size: 12px;">
-											{{ child.value.text.0 }}<span style="font-size: 14px; color: #3f3f3f;">{{ child.value.text|slice:"1:" }}
-											</span>
-										</span>
+										<span class="initial-six">{{ child.value.text|slice:":6" }}</span><span>{{ child.value.text|slice:"6:" }}</span>
 									</p>
 								</section>
 							</div>
@@ -138,7 +135,7 @@
 							<div class="row">
 								{% for image_item in child.value.image_list %}
 									{% image image_item.image width-800 as theimage %}
-									<div class="image-list-5-item col-xs-12 col-md-2 {% if forloop.first %}col-md-offset-1{% endif %}" >
+									<div class="image-list-5-item col-xs-4 col-xs-offset-0 col-md-2 {% if forloop.first %}col-md-offset-1{% endif %}" >
 										{% if image_item.page %}<a href="{{ image_item.page.url }}">{% endif %}
 											<div class="image-list-5-item-image">
 												<img src="{{ theimage.url }}" style="max-height:400px; max-width: 100%;" alt="{{ theimage.caption }}" />

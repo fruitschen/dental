@@ -218,13 +218,60 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   padding: 0;
 }
 
-@media (max-width: 370px)  {
-  .overlap-design h3.overlap-title sup.subtitle{
+.overlap-text:first-letter{
+  font-size:12px;
+  color:#a1a1a1;
+}
+
+.overlap-text{
+  font-size:14px;
+  color:#3f3f3f;
+  text-align:left;
+}
+
+.initial-six-bold{
+  font-weight: bold;
+}
+
+@media (max-width: 420px)  {
+  .overlap-design {
+    margin: 10px auto;
+  }
+  .overlap-design h3.overlap-title {
     display:none;
+  }
+  .overlap-text:first-letter{
+    font-size:14px;
+    color:#3f3f3f;
+  }
+  .quote{
+    font-size: 1.4em;
+    line-height: 2em;
+    margin: 30px auto;
+  }
+  .two-col-container{
+    margin-top:30px;
+  }
+  .two-col-text div.decoration{
+    display:none;
+  }
+  .two-col-text p.desc1{
+    height: auto;
+  }
+  .two-col-text p.desc2{
+    height: auto;
+  }
+  .image-list-5-item{
+    margin: 0;
+    padding: 0;
+  }
+  .image-list-5-item-image{
+    margin: 0;
+    padding: 0;
   }
 }
 
-@media (max-width: 767px)  {
+@media (min-width: 421px) and (max-width: 767px)  {
   .overlap-design {
     margin: 40px auto;
   }
@@ -254,11 +301,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     height: auto;
   }
   .image-list-5-item{
-    margin: 2em auto;
-    padding: 0 2em;
+    margin: 0;
+    padding: 0;
   }
   .image-list-5-item-image{
-    padding: 4em 2em;
+    margin: 0;
+    padding: 0;
   }
 }
 
