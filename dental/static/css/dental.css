@@ -244,6 +244,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-size:14px;
     color:#3f3f3f;
   }
+  .col-md-12.quote-container{
+    margin: 0;
+    padding: 0;
+  }
   .quote{
     font-size: 1.4em;
     line-height: 2em;
