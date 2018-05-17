@@ -8,4 +8,15 @@ $().ready(function(){
             }
         })
     }
+
+    // 小屏幕上，五列图标，把第二行的两个图标居中。
+    var current_top = null;
+    $('.image-list-5-item').each(function(){
+        console.log(current_top)
+        if(current_top && $(this).offset().top != current_top){
+            $(this).css('margin-left', '16.66666667%')
+        }
+        current_top = $(this).offset().top;
+    })
+
 });
