@@ -38,12 +38,6 @@ class ImageListBlock(StructBlock):
     image_list = ListBlock(ImageBlock(label="图片"))
 
 
-class PagesStreamBlock(StreamBlock):
-    paragraph = RichTextBlock(icon="pilcrow", label=u'段落')
-    image_list = ImageListBlock(icon="image", label=u'图片列表')
-    html = RawHTMLBlock(icon="code", label=u'HTML代码')
-
-
 # HomePage Streamfield definition
 
 class HPFiveColImageListBlock(StructBlock):
@@ -128,6 +122,20 @@ HomePage.content_panels = [
     ImageChooserPanel('header_image'),
     StreamFieldPanel('content'),
 ]
+
+
+class PageTitle(StructBlock):
+    title = CharBlock(required=True, max_length=255, label=u"大标题")
+    subtitle = CharBlock(required=False, max_length=255, label=u"小标题")
+
+
+class PagesStreamBlock(StreamBlock):
+    page_title = PageTitle(icon="pilcrow", label=u"大小标题模块")
+    html_paragraph = RawHTMLBlock(icon="code", label=u'HTML段落')
+    html_quote = RawHTMLBlock(icon = "openquote", label=u'HTML引用')
+    paragraph = RichTextBlock(icon="pilcrow", label=u'段落')
+    image_list = ImageListBlock(icon="image", label=u'图片列表')
+    html = RawHTMLBlock(icon="code", label=u'HTML代码')
 
 
 class SimplePage(Page):
