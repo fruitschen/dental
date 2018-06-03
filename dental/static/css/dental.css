@@ -247,6 +247,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   letter-spacing: 2.5px;
 }
 
+.gold{
+  color: #f1da8c;
+}
+
 @media (max-width: 420px)  {
   .overlap-design {
     margin: 10px auto;
