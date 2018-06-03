@@ -291,6 +291,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     margin: 0;
     padding: 0;
   }
+  .page-title {
+    margin-bottom: 20px;
+  }
   .page-title .main-title{
     font-size: 40px;
   }
@@ -337,6 +340,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     margin: 0;
     padding: 0;
   }
+  .page-title {
+    margin-bottom: 60px;
+  }
   .page-title .main-title{
     font-size: 40px;
   }
@@ -365,6 +371,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   }
   .image-list-5-item {
     padding: 0;
+  }
+  .page-title {
+    margin-bottom: 120px;
   }
   .page-title .main-title{
     font-size: 80px;
