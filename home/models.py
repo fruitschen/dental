@@ -131,6 +131,7 @@ class PageTitle(StructBlock):
 
 class PagesStreamBlock(StreamBlock):
     page_title = PageTitle(icon="pilcrow", label=u"大小标题模块")
+    underline_title = PageTitle(icon="pilcrow", label=u"下划线标题模块")
     html_paragraph = RawHTMLBlock(icon="code", label=u'HTML段落')
     html_quote = RawHTMLBlock(icon = "openquote", label=u'HTML引用')
     paragraph = RichTextBlock(icon="pilcrow", label=u'段落')

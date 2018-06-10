@@ -10,6 +10,16 @@
                 <span style="background-color:#fefefe">{{ child.value.subtitle }}</span>
             </p>
         </div>
+
+
+    {% elif child.block_type == 'underline_title' %}
+        <div class="underline-title-container">
+            <div class="underline-title-main">
+                <h2>{{ child.value.title }}</h2>
+            </div>
+
+            <h3 class="underline-title-sub">{{ child.value.subtitle }}</h3>
+        </div>
     {% elif child.block_type == 'html_paragraph' %}
         <div class="row text-center html-paragraph">
             <div class="col-md-8 col-md-offset-2 html-paragraph-content">
@@ -34,3 +44,4 @@
         {{ child }}
     {% endif %}
 {% endfor %}
+

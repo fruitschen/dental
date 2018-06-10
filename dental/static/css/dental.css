@@ -251,6 +251,31 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   color: #f1da8c;
 }
 
+.underline-title-main {
+    display: inline-block;
+    width: auto;
+    line-height: 25px;
+    padding: 0px 10px;
+    border-bottom: 5px solid #87b1c9;
+    font-size: 18px;
+}
+
+.underline-title-main h2{
+    color: #3F3F3F;
+    font-size: 45px;
+    letter-spacing: 2.5px;
+    margin-bottom: -10px;
+    font-weight: 700;
+}
+
+.underline-title-sub {
+    color: #3F3F3F;
+    font-size: 15px;
+    margin-top: 0;
+}
+
+/* -------------------- Styles for devices with certain sizes -------------------- */
+
 @media (max-width: 420px)  {
   .overlap-design {
     margin: 10px auto;
@@ -301,6 +326,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-size:12px;
     margin-top: -20px;
   }
+  .underline-title-main h2{
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
 }
 
 @media (min-width: 421px) and (max-width: 767px)  {
@@ -349,6 +379,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   .page-title .subtitle{
     font-size:12px;
     margin-top: -20px;
+  }
+  .underline-title-main h2{
+    font-size: 30px;
+    margin-bottom: -5px;
   }
 }
 
