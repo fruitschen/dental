@@ -40,8 +40,24 @@
                 </p>
             </div>
         </div>
+    {% elif child.block_type == 'right_aligned_quote' %}
+        <div class="row">
+            <div class="right-quote-container">
+                <div class="right-quote">
+                    <div class="right-quote-inner">
+                        <div style="width: 3em;height: 3em;box-sizing: border-box;">
+                            <section style="width: 3em; border-top: 2px solid #ffc500; transform-origin: left top 0px; -webkit-transform-origin: left top 0px; -moz-transform-origin: left top 0px; -o-transform-origin: left top 0px; box-sizing: border-box;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);"></section>
+                            <section style="width: 3em;height: 3em;margin-top: -1px;border-left: 2px solid #ffc500;border-top: 2px solid #ffc500;box-sizing: border-box;"></section>
+                        </div>
+                        <strong class="right-quote-text" style="">{{ child.value }}</strong>
+                    </div>
+                    <section style="width: 3em; height: 3em; margin-left: auto; border-right: 2px solid #ffc500; border-bottom: 2px solid #ffc500; box-sizing: border-box;"></section>
+                </div>
+            </div>
+        </div>
     {% else %}
         {{ child }}
     {% endif %}
 {% endfor %}
+
 

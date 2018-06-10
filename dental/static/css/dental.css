@@ -156,6 +156,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 .html-quote{
   color: #7f7f7f;
+  font-weight: bold;
 }
 
 .overlap-design {
@@ -252,26 +253,47 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 
 .underline-title-main {
-    display: inline-block;
-    width: auto;
-    line-height: 25px;
-    padding: 0px 10px;
-    border-bottom: 5px solid #87b1c9;
-    font-size: 18px;
+  display: inline-block;
+  width: auto;
+  line-height: 25px;
+  padding: 0px 10px;
+  border-bottom: 5px solid #87b1c9;
+  font-size: 18px;
 }
 
 .underline-title-main h2{
-    color: #3F3F3F;
-    font-size: 45px;
-    letter-spacing: 2.5px;
-    margin-bottom: -10px;
-    font-weight: 700;
+  color: #3F3F3F;
+  font-size: 45px;
+  letter-spacing: 2.5px;
+  margin-bottom: -10px;
+  font-weight: 700;
 }
 
 .underline-title-sub {
-    color: #3F3F3F;
-    font-size: 15px;
-    margin-top: 0;
+  color: #3F3F3F;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.right-quote-container{
+  margin-top: 4em;
+  margin-bottom: 2em;
+  font-size: 16px;
+  text-align: right;
+  box-sizing: border-box;
+  transform: translate3d(0px, 0px, 0px);-webkit-transform: translate3d(0px, 0px, 0px);-moz-transform: translate3d(0px, 0px, 0px);-o-transform: translate3d(0px, 0px, 0px);
+}
+
+.right-quote{
+  display: inline-block; width: 70%; vertical-align: top; box-sizing: border-box;
+}
+
+.right-quote-inner {
+  margin: 18px 0%; box-sizing: border-box; text-align: center;
+}
+
+.right-quote-text{
+  white-space: normal;font-size: 45px; color: #3f3f3f;
 }
 
 /* -------------------- Styles for devices with certain sizes -------------------- */
@@ -330,7 +352,16 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-size: 20px;
     margin-bottom: 0;
   }
-
+  .right-quote-container{
+    font-size: 10px;
+  }
+  .right-quote-inner {
+    margin: 1em 0 0 0;
+  }
+  .right-quote-text{
+    font-size: 25px;
+    padding-left:1em;
+  }
 }
 
 @media (min-width: 421px) and (max-width: 767px)  {
