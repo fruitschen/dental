@@ -165,6 +165,14 @@ h2.big-title{
   font-weight: 700;
 }
 
+h2.normal-title{
+  font-size: 36px;
+}
+
+span.blue-title{
+  font-size: 45px;
+}
+
 h3.small-title{
   color: #3F3F3F;
   text-align: center;
@@ -183,7 +191,7 @@ h3.small-title{
   text-align: left;
   margin: 0;
 }
-.overlap-design h3.overlap-title .main-title, h2.big-title {
+.overlap-design h3.overlap-title .main-title, h2.big-title, h2.normal-title {
   color: #3f3f3f;
 }
 .overlap-design h3.overlap-title sup.subtitle{
@@ -330,6 +338,7 @@ h3.small-title{
 /* -------------------- Styles for devices with certain sizes -------------------- */
 
 @media (max-width: 420px)  {
+
   h2.big-title{
     font-size: 1.8em;
     letter-spacing: 0;
@@ -337,6 +346,12 @@ h3.small-title{
   h3.small-title{
     font-size: 1.3em;
     letter-spacing: 0;
+  }
+  h2.normal-title{
+    font-size: 1.5em;
+  }
+  span.blue-title{
+    font-size: 1.4em;
   }
   .overlap-design {
     margin: 10px auto;
