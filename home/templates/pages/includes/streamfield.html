@@ -32,6 +32,17 @@
                 {{ child }}
             </div>
         </div>
+    {% elif child.block_type == 'image_with_caption' %}
+        {% image child.value.image width-800 as theimage %}
+        <div class="row image-with-caption">
+            <img class="the-img" src="{{ theimage.url }}" title="{{ child.value.caption }}" alt="{{ child.value.caption }}" />
+            <section class="the-caption">
+                <p class="the-caption-text">
+                    {{ child.value.caption }}
+                </p>
+            </section>
+        </div>
+
     {% elif child.block_type == 'html_quote' %}
         <div class="row">
             <div class="col-md-12 quote-container">
