@@ -165,6 +165,13 @@ h2.big-title{
   font-weight: 700;
 }
 
+h3.small-title{
+  color: #3F3F3F;
+  text-align: center;
+  letter-spacing: 2.5px;
+  font-size: 25px;
+}
+
 .overlap-design {
   line-height:1.75em;
   color:#a1a1a1;
@@ -325,6 +332,10 @@ h2.big-title{
 @media (max-width: 420px)  {
   h2.big-title{
     font-size: 1.8em;
+    letter-spacing: 0;
+  }
+  h3.small-title{
+    font-size: 1.3em;
     letter-spacing: 0;
   }
   .overlap-design {
