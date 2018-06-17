@@ -159,6 +159,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   font-weight: bold;
 }
 
+h2.big-title{
+  font-size: 55px;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
 .overlap-design {
   line-height:1.75em;
   color:#a1a1a1;
@@ -170,7 +176,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   text-align: left;
   margin: 0;
 }
-.overlap-design h3.overlap-title .main-title {
+.overlap-design h3.overlap-title .main-title, h2.big-title {
   color: #3f3f3f;
 }
 .overlap-design h3.overlap-title sup.subtitle{
@@ -317,6 +323,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 /* -------------------- Styles for devices with certain sizes -------------------- */
 
 @media (max-width: 420px)  {
+  h2.big-title{
+    font-size: 1.8em;
+    letter-spacing: 0;
+  }
   .overlap-design {
     margin: 10px auto;
   }
@@ -393,6 +403,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 
 @media (min-width: 421px) and (max-width: 767px)  {
+  h2.big-title{
+    font-size: 2.2em;
+    letter-spacing: 2px ;
+  }
   .overlap-design {
     margin: 40px auto;
   }
