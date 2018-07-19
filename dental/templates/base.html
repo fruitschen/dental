@@ -11,6 +11,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% endif %}">
 
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?b46449d82d6b6377f83c1e54be35ab26";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
 		<link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
 		<link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
 
