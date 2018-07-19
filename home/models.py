@@ -245,6 +245,9 @@ DentistsPage.content_panels = [
 
 class CategoryPage(Page):
     intro = RichTextField(blank=True)
+    link_in_menu = models.BooleanField(
+        default=False, verbose_name=u'是否在菜单中显示链接',
+    )
     header_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -276,6 +279,7 @@ class CategoryPage(Page):
 
 CategoryPage.content_panels = [
     FieldPanel('title', classname="full title"),
+    FieldPanel('link_in_menu'),
     ImageChooserPanel('header_image'),
     ImageChooserPanel('thumbnail'),
     FieldPanel('intro', classname="full"),

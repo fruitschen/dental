@@ -2,7 +2,11 @@
 
 <ul class="dropdown-menu">
     {# Include link to parent because the parent link is a drop down #}
-    <li><a href="{% pageurl parent %}">{{ parent.title }}</a></li>
+    {% if parent.categorypage and not parent.categorypage.link_in_menu %}
+
+    {% else %}
+        <li><a href="{% pageurl parent %}">{{ parent.title }}</a></li>
+    {% endif %}
     {% for child in menuitems_children %}
         <li><a href="{% pageurl child %}">{{ child.title }}</a></li>
     {% endfor %}
