@@ -2,6 +2,10 @@
 
 <ul class="dropdown-menu">
     {# Include link to parent because the parent link is a drop down #}
+    {% if is_first %}
+        <li><a href="/">Home</a></li>
+    {% endif %}
+
     {% if parent.categorypage and not parent.categorypage.link_in_menu %}
 
     {% else %}
