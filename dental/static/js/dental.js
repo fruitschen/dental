@@ -5,6 +5,7 @@ $().ready(function(){
         $('.overlap-text .initial-six').each(function(){
             if($(this).text() == '大象家庭口腔'){
                 $(this).addClass('initial-six-bold');
+                $(this).css('color', '#87b0c9')
             }
         })
     }

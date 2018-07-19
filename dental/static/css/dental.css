@@ -243,11 +243,6 @@ h3.small-title{
   padding: 0;
 }
 
-.overlap-text:first-letter{
-  font-size:12px;
-  color:#a1a1a1;
-}
-
 .overlap-text{
   font-size:14px;
   color:#3f3f3f;
@@ -256,6 +251,8 @@ h3.small-title{
 
 .initial-six-bold{
   font-weight: bold;
+  font-size: 2em;
+  color: #87b0c9;
 }
 
 .page-title .main-title{
@@ -358,10 +355,6 @@ h3.small-title{
   }
   .overlap-design h3.overlap-title {
     display:none;
-  }
-  .overlap-text:first-letter{
-    font-size:14px;
-    color:#3f3f3f;
   }
   .col-md-12.quote-container{
     margin: 0;
