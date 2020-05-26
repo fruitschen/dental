@@ -10,28 +10,39 @@
 			<div class="section">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="title">{{ self.title }}</h2>
+                        <h2 class="title hidden-xs" style="visibility:hidden;">{{ self.title }}</h2>
                         {% if self.intro %}
                             {{ self.intro|richtext }}
                         {% endif %}
                     </div>
                 </div>
                 {% if self.content %}
-                    {% for child in self.content %}
+                    {% include "pages/includes/streamfield.html" with content=self.content %}
+                {% endif %}
+                {% if self.dentists %}
+                    <div class="row dentists-list">
+
+                    {% for child in self.dentists %}
                         {% if child.block_type == 'person' %}
-                            <div class="row">
-                                {% image child.value.photo width-800 as theimage %}
-                                <div class="col-md-8 col-md-offset-2">
-                                    <img src="{{ theimage.url }}" style="max-height:600px; max-width: 100%;" alt="{{ theimage.alt }}" />
-                                    <h2>{{ child.value.name }}</h2>
-                                    <div>
-                                        {{ child.value.biography }}
-                                    </div>
+                            <div class="col-md-4 col-xs-12">
+                                {% image child.value.photo width-600 as theimage %}
+                                <img src="{{ theimage.url }}" style="max-height:600px; width: 100%;" alt="{{ theimage.alt }}" />
+                                <h2>{{ child.value.name }}</h2>
+                                <div>
+                                    {{ child.value.biography }}
                                 </div>
                             </div>
                         {% else %}
                             {{ child }}
                         {% endif %}
+
+                    {% if forloop.last %}
+                    </div>
+                    {% elif forloop.counter|divisibleby:"3" %}
+                    </div>
+                    <div class="row dentists-list">
+                    {% endif %}
+
                     {% endfor %}
                 {% endif %}
 			</div>

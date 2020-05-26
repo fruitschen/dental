@@ -205,6 +205,9 @@ class DentistStreamBlock(StreamBlock):
 class DentistsPage(Page):
     intro = RichTextField(blank=True)
     content = StreamField(
+        PagesStreamBlock
+    )
+    dentists = StreamField(
         DentistStreamBlock
     )
 
@@ -237,6 +240,7 @@ DentistsPage.content_panels = [
     FieldPanel('timestamp'),
     FieldPanel('intro', classname="full"),
     StreamFieldPanel('content'),
+    StreamFieldPanel('dentists'),
 ]
 
 
