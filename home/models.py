@@ -275,7 +275,7 @@ class CategoryPage(Page):
 
     api_fields = ['intro', 'thumbnail']
 
-    subpage_types = ['SimplePage']
+    subpage_types = ['SimplePage', 'DentistsPage']
 
     class Meta:
         verbose_name = u'分类页面'
