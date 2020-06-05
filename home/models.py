@@ -130,6 +130,7 @@ class PageTitle(StructBlock):
 
 
 class PagesStreamBlock(StreamBlock):
+    content_centered = RichTextBlock(icon="pilcrow", label=u"居中内容")
     page_title = PageTitle(icon="pilcrow", label=u"大小标题模块")
     underline_title = PageTitle(icon="pilcrow", label=u"下划线标题模块")
     html_paragraph = RawHTMLBlock(icon="code", label=u'HTML段落')
@@ -139,7 +140,6 @@ class PagesStreamBlock(StreamBlock):
     image_with_caption = ImageBlock(icon="image", label=u'带标题图片')
     image_list = ImageListBlock(icon="image", label=u'图片列表')
     html = RawHTMLBlock(icon="code", label=u'HTML代码')
-
 
 
 class SimplePage(Page):

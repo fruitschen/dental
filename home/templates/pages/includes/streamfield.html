@@ -66,6 +66,10 @@
                 </div>
             </div>
         </div>
+    {% elif child.block_type == 'content_centered' %}
+        <section class="content_centered">
+            {{ child.value }}
+        </section>
     {% else %}
         {{ child }}
     {% endif %}
